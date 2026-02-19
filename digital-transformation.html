@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Transformation | VectorKraft Digital</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2300C9FF' width='100' height='100'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='80' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' dominant-baseline='middle'%3EV%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    
+    <!-- Use same CSS as contact.html for nav/footer, add service-specific styles -->
+    <style>
+        :root {
+            --navy: #0A1628;
+            --navy-mid: #112240;
+            --navy-light: #1E3A5F;
+            --accent: #00C9FF;
+            --white: #F8FAFC;
+            --gray-400: #94A3B8;
+            --gray-600: #475569;
+            --text: #CBD5E1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--text);
+        }
+
+        /* NAV - Same as other pages */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 201, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo em {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.28em;
+            margin-top: 3px;
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li > a {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links > li > a:hover { color: var(--white); }
+
+        .dropdown { position: relative; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(17, 34, 64, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 201, 255, 0.1);
+            min-width: 240px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--white);
+            background: rgba(0, 201, 255, 0.05);
+            border-left-color: var(--accent);
+        }
+
+        .nav-cta {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: var(--accent);
+            padding: 0.6rem 1.4rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+        }
+
+        .nav-cta:hover { background: var(--white); }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 140px 5% 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--gray-400);
+            max-width: 800px;
+        }
+
+        /* OFFERINGS SECTION */
+        .offerings {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offering {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .offering:last-child {
+            border-bottom: none;
+        }
+
+        .offering h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+        }
+
+        .offering-tag {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .offering p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+
+        .offering ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .offering ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .offering ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 5%;
+            background: var(--navy-mid);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.05rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: var(--accent);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #060D18;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .footer-logo em {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.28em;
+            margin-top: 3px;
+            text-transform: lowercase;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 900px) {
+            .nav-links, .nav-cta { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="logo">VectorKraft<em>digital</em></a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="index.html#services">Services</a>
+            <div class="dropdown-menu">
+                <a href="digital-transformation.html">Digital Transformation</a>
+                <a href="responsible-ai.html">Responsible AI</a>
+                <a href="digital-product-delivery.html">Digital Product Delivery</a>
+                <a href="experience-transformation.html">Experience Transformation</a>
+            </div>
+        </li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get In Touch</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <h1>Digital Transformation</h1>
+    <p class="page-subtitle">Large-scale organizational change programs that modernize enterprise systems, operating models, and culture, turning complexity into competitive advantage at every layer of your business.</p>
+</div>
+
+<!-- OFFERINGS -->
+<section class="offerings">
+    
+    <div class="offering" id="digital-strategy">
+        <span class="offering-tag">01 — Offering</span>
+        <h2>Digital Strategy</h2>
+        <p>Build a clear, actionable roadmap that aligns digital investments with business outcomes. We help organizations define their digital vision, identify transformation opportunities, and create strategies that balance innovation with practical execution.</p>
+        <p><strong>What we deliver:</strong></p>
+        <ul>
+            <li>Digital maturity assessments and benchmarking</li>
+            <li>Technology roadmaps and investment prioritization</li>
+            <li>Operating model design for digital-first organizations</li>
+            <li>Change management and stakeholder alignment</li>
+            <li>Value realization frameworks and KPIs</li>
+        </ul>
+    </div>
+
+    <div class="offering" id="enterprise-architecture">
+        <span class="offering-tag">02 — Offering</span>
+        <h2>Enterprise Architecture</h2>
+        <p>Design scalable, future-proof architectures that support business agility and growth. We bring deep expertise in cloud platforms, microservices, APIs, and modern integration patterns to help you build resilient technology foundations.</p>
+        <p><strong>What we deliver:</strong></p>
+        <ul>
+            <li>Target architecture definition and roadmaps</li>
+            <li>Cloud migration strategy and architecture</li>
+            <li>API strategy and platform design</li>
+            <li>Data architecture and governance frameworks</li>
+            <li>Security and compliance architecture</li>
+        </ul>
+    </div>
+
+    <div class="offering" id="legacy-modernization">
+        <span class="offering-tag">03 — Offering</span>
+        <h2>Legacy Modernization</h2>
+        <p>Transform outdated systems without disrupting your business. Our pragmatic approach combines replatforming, refactoring, and rebuilding strategies to modernize legacy applications while managing risk and maintaining business continuity.</p>
+        <p><strong>What we deliver:</strong></p>
+        <ul>
+            <li>Legacy application portfolio assessment</li>
+            <li>Modernization strategy (rehost, refactor, rebuild)</li>
+            <li>Incremental migration planning and execution</li>
+            <li>Data migration and integration</li>
+            <li>Testing, quality assurance, and rollback plans</li>
+        </ul>
+    </div>
+
+    <div class="offering" id="portfolio-rationalization">
+        <span class="offering-tag">04 — Offering</span>
+        <h2>Portfolio Rationalization</h2>
+        <p>Optimize your application landscape to reduce cost, complexity, and risk. We help organizations streamline their portfolio, retire redundant systems, and consolidate capabilities to create a leaner, more efficient technology estate.</p>
+        <p><strong>What we deliver:</strong></p>
+        <ul>
+            <li>Application portfolio inventory and analysis</li>
+            <li>Business capability mapping</li>
+            <li>Rationalization strategy and business case</li>
+            <li>Decommissioning roadmaps and execution plans</li>
+            <li>Consolidation and standardization programs</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Ready to Transform Your Organization?</h2>
+    <p>Let's discuss how digital transformation can unlock new value for your business.</p>
+    <a href="contact.html" class="btn-primary">Get In Touch →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">VectorKraft<em>digital</em></div>
+        <p class="footer-copy">© 2025 VectorKraft Digital. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
