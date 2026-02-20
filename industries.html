@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries We Serve | VectorKraft Digital</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2300C9FF' width='100' height='100'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='80' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' dominant-baseline='middle'%3EV%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0A1628;
+            --navy-mid: #112240;
+            --navy-light: #1E3A5F;
+            --accent: #00C9FF;
+            --white: #F8FAFC;
+            --gray-400: #94A3B8;
+            --gray-600: #475569;
+            --text: #CBD5E1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--text);
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 201, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo em {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.28em;
+            margin-top: 3px;
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li > a {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links > li > a:hover { color: var(--white); }
+
+        .dropdown { position: relative; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(17, 34, 64, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 201, 255, 0.1);
+            min-width: 240px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--white);
+            background: rgba(0, 201, 255, 0.05);
+            border-left-color: var(--accent);
+        }
+
+        .nav-cta {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: var(--accent);
+            padding: 0.6rem 1.4rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+        }
+
+        .nav-cta:hover { background: var(--white); }
+
+        .page-header {
+            padding: 140px 5% 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--gray-400);
+            max-width: 800px;
+        }
+
+        .industries-section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .industry-card {
+            background: var(--navy-mid);
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 201, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .industry-card:hover {
+            background: var(--navy-light);
+            border-color: rgba(0, 201, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .industry-card:hover::before {
+            height: 100%;
+        }
+
+        .industry-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 201, 255, 0.08);
+            border: 1px solid rgba(0, 201, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .industry-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--accent);
+        }
+
+        .industry-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+        }
+
+        .industry-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+        }
+
+        .industry-challenges {
+            margin-top: 1.5rem;
+        }
+
+        .industry-challenges h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .industry-challenges ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .industry-challenges li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .industry-challenges li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            padding: 80px 5%;
+            background: var(--navy-mid);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.05rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: var(--accent);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #060D18;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .footer-logo em {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.28em;
+            margin-top: 3px;
+            text-transform: lowercase;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 900px) {
+            .nav-links, .nav-cta { display: none; }
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">VectorKraft<em>digital</em></a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="index.html#services">Services</a>
+            <div class="dropdown-menu">
+                <a href="digital-transformation.html">Digital Transformation</a>
+                <a href="responsible-ai.html">Responsible AI</a>
+                <a href="digital-product-delivery.html">Digital Product Delivery</a>
+                <a href="experience-transformation.html">Experience Transformation</a>
+            </div>
+        </li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get In Touch</a>
+</nav>
+
+<div class="page-header">
+    <h1>Industries We Serve</h1>
+    <p class="page-subtitle">Deep expertise across sectors where digital transformation, responsible AI, and exceptional product delivery create competitive advantage and lasting value.</p>
+</div>
+
+<section class="industries-section">
+    
+    <div class="industries-grid">
+        
+        <!-- Banking -->
+        <div class="industry-card">
+            <div class="industry-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 21h18M3 10h18M12 3l9 7H3l9-7z" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 10v11M12 10v11M18 10v11" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h3>Banking</h3>
+            <p>Helping banks navigate digital disruption, modernize core systems, and deliver next-generation customer experiences while maintaining security, compliance, and operational resilience.</p>
+            <div class="industry-challenges">
+                <h4>Key Challenges We Address</h4>
+                <ul>
+                    <li>Legacy core banking system modernization</li>
+                    <li>Digital-first customer experience transformation</li>
+                    <li>Open banking and API ecosystem development</li>
+                    <li>Regulatory compliance and risk management</li>
+                    <li>Cloud migration and infrastructure modernization</li>
+                    <li>Real-time payments and fraud detection</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Financial Services -->
+        <div class="industry-card">
+            <div class="industry-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>Financial Services</h3>
+            <p>Empowering wealth managers, asset managers, and fintech companies to harness data, AI, and digital platforms to deliver personalized advice and seamless investment experiences.</p>
+            <div class="industry-challenges">
+                <h4>Key Challenges We Address</h4>
+                <ul>
+                    <li>Wealth management platform modernization</li>
+                    <li>Robo-advisory and algorithmic trading systems</li>
+                    <li>Portfolio management and risk analytics</li>
+                    <li>Client onboarding and KYC automation</li>
+                    <li>ESG integration and reporting</li>
+                    <li>Market data integration and real-time insights</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Insurance -->
+        <div class="industry-card">
+            <div class="industry-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12l2 2 4-4" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>Insurance</h3>
+            <p>Enabling insurers to streamline operations, accelerate claims processing, and create personalized customer experiences through digital transformation and intelligent automation.</p>
+            <div class="industry-challenges">
+                <h4>Key Challenges We Address</h4>
+                <ul>
+                    <li>Policy administration system modernization</li>
+                    <li>Claims processing automation and AI-driven assessment</li>
+                    <li>Underwriting optimization and risk modeling</li>
+                    <li>Digital distribution and direct-to-consumer channels</li>
+                    <li>IoT integration and usage-based insurance</li>
+                    <li>Fraud detection and prevention</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Healthcare -->
+        <div class="industry-card">
+            <div class="industry-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="2" fill="#00C9FF"/>
+                </svg>
+            </div>
+            <h3>Healthcare</h3>
+            <p>Supporting healthcare organizations in delivering better patient outcomes through interoperable systems, data-driven insights, and patient-centered digital experiences, while ensuring compliance and security.</p>
+            <div class="industry-challenges">
+                <h4>Key Challenges We Address</h4>
+                <ul>
+                    <li>Electronic health record (EHR) integration and optimization</li>
+                    <li>Telehealth and virtual care platforms</li>
+                    <li>Patient engagement and care coordination</li>
+                    <li>Clinical decision support and AI diagnostics</li>
+                    <li>Population health management and analytics</li>
+                    <li>HIPAA compliance and data security</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Manufacturing -->
+        <div class="industry-card">
+            <div class="industry-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 20h20M3 20V9l5-3 4 2 5-3v15M10 9v11M14 9v11" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 15h-3v5h3v-5z" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>Manufacturing</h3>
+            <p>Driving Industry 4.0 initiatives that connect operations, optimize supply chains, and enable predictive maintenance through IoT, AI, and digital twin technologies.</p>
+            <div class="industry-challenges">
+                <h4>Key Challenges We Address</h4>
+                <ul>
+                    <li>Smart factory and IIoT implementation</li>
+                    <li>Predictive maintenance and asset optimization</li>
+                    <li>Supply chain visibility and optimization</li>
+                    <li>Quality management and traceability</li>
+                    <li>Digital twin and simulation platforms</li>
+                    <li>Manufacturing execution systems (MES) modernization</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Ready to Transform Your Industry?</h2>
+    <p>Let's discuss how our industry expertise can accelerate your digital initiatives.</p>
+    <a href="contact.html" class="btn-primary">Get In Touch →</a>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">VectorKraft<em>digital</em></div>
+        <p class="footer-copy">© 2025 VectorKraft Digital. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

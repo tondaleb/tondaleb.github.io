@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Insights | VectorKraft Digital</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2300C9FF' width='100' height='100'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='80' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' dominant-baseline='middle'%3EV%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0A1628;
+            --navy-mid: #112240;
+            --navy-light: #1E3A5F;
+            --accent: #00C9FF;
+            --accent-warm: #F5A623;
+            --white: #F8FAFC;
+            --gray-400: #94A3B8;
+            --gray-600: #475569;
+            --text: #CBD5E1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--text);
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 201, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo em {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.28em;
+            margin-top: 3px;
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li > a {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links > li > a:hover { color: var(--white); }
+
+        .dropdown { position: relative; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(17, 34, 64, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 201, 255, 0.1);
+            min-width: 240px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--white);
+            background: rgba(0, 201, 255, 0.05);
+            border-left-color: var(--accent);
+        }
+
+        .nav-cta {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: var(--accent);
+            padding: 0.6rem 1.4rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+        }
+
+        .nav-cta:hover { background: var(--white); }
+
+        .page-header {
+            padding: 140px 5% 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--gray-400);
+            max-width: 800px;
+        }
+
+        .resources-section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,201,255,0.03) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .resource-card:hover { 
+            border-color: rgba(0,201,255,0.2); 
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .resource-card:hover::after { opacity: 1; }
+
+        .resource-category {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .resource-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .resource-preview {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .resource-link {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .resource-link:hover { gap: 0.8rem; }
+
+        footer {
+            background: #060D18;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .footer-logo em {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.28em;
+            margin-top: 3px;
+            text-transform: lowercase;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 900px) {
+            .nav-links, .nav-cta { display: none; }
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">VectorKraft<em>digital</em></a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="index.html#services">Services</a>
+            <div class="dropdown-menu">
+                <a href="digital-transformation.html">Digital Transformation</a>
+                <a href="responsible-ai.html">Responsible AI</a>
+                <a href="digital-product-delivery.html">Digital Product Delivery</a>
+                <a href="experience-transformation.html">Experience Transformation</a>
+            </div>
+        </li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get In Touch</a>
+</nav>
+
+<div class="page-header">
+    <h1>Resources & Insights</h1>
+    <p class="page-subtitle">Explore our latest thinking on digital transformation, responsible AI, product delivery, and experience design. Practical insights from the frontlines of digital innovation.</p>
+</div>
+
+<section class="resources-section">
+    <div class="resources-grid">
+        
+        <!-- Digital Transformation Resources -->
+        <div class="resource-card" onclick="window.open('https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-five-trademarks-of-agile-organizations', '_blank')">
+            <span class="resource-category">Digital Transformation</span>
+            <h3>The 5 Pillars of Successful Digital Transformation</h3>
+            <p class="resource-preview">Digital transformation fails more often than it succeeds. Learn the five critical pillars that separate successful transformations from the rest: clear vision, executive sponsorship, cultural readiness, incremental delivery, and continuous measurement.</p>
+            <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-five-trademarks-of-agile-organizations" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <div class="resource-card" onclick="window.open('https://www.redhat.com/en/topics/digital-transformation/what-is-application-modernization', '_blank')">
+            <span class="resource-category">Digital Transformation</span>
+            <h3>Legacy Modernization: A Pragmatic Approach</h3>
+            <p class="resource-preview">Modernizing legacy systems doesn't mean ripping and replacing everything. Discover a pragmatic framework for assessing your application portfolio, choosing the right modernization strategy, and managing risk throughout the journey.</p>
+            <a href="https://www.redhat.com/en/topics/digital-transformation/what-is-application-modernization" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <!-- Responsible AI Resources -->
+        <div class="resource-card" onclick="window.open('https://www.ibm.com/topics/ai-ethics', '_blank')">
+            <span class="resource-category">Responsible AI</span>
+            <h3>Building Trust Through AI Ethics</h3>
+            <p class="resource-preview">As AI becomes embedded in critical decisions, building trust is paramount. This guide explores practical frameworks for embedding ethics into AI development, from design principles to fairness testing and continuous monitoring.</p>
+            <a href="https://www.ibm.com/topics/ai-ethics" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <div class="resource-card" onclick="window.open('https://www.nist.gov/itl/ai-risk-management-framework', '_blank')">
+            <span class="resource-category">Responsible AI</span>
+            <h3>AI Governance Frameworks: A Practical Guide</h3>
+            <p class="resource-preview">Effective AI governance balances innovation with risk management. Learn how to establish policies, processes, and controls that ensure responsible AI development while enabling your teams to move fast and deliver value.</p>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <!-- Digital Product Delivery Resources -->
+        <div class="resource-card" onclick="window.open('https://www.productplan.com/learn/what-is-product-management/', '_blank')">
+            <span class="resource-category">Digital Product Delivery</span>
+            <h3>From Idea to Launch: Modern Product Delivery</h3>
+            <p class="resource-preview">Great products don't happen by accident. This comprehensive guide walks through the modern product delivery lifecycle—from discovery and design to engineering and launch—with proven practices from high-performing teams.</p>
+            <a href="https://www.productplan.com/learn/what-is-product-management/" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <div class="resource-card" onclick="window.open('https://www.svpg.com/product-vs-feature-teams/', '_blank')">
+            <span class="resource-category">Digital Product Delivery</span>
+            <h3>Building Product Teams That Ship</h3>
+            <p class="resource-preview">The difference between feature factories and product powerhouses comes down to team structure and culture. Discover how to build empowered, cross-functional product teams that own outcomes, not just outputs.</p>
+            <a href="https://www.svpg.com/product-vs-feature-teams/" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <!-- Experience Transformation Resources -->
+        <div class="resource-card" onclick="window.open('https://www.nngroup.com/articles/customer-experience/', '_blank')">
+            <span class="resource-category">Experience Transformation</span>
+            <h3>Customer Experience in the Digital Age</h3>
+            <p class="resource-preview">Customer expectations have never been higher. Learn how leading organizations are reimagining CX for the digital age—mapping journeys, eliminating friction, and creating moments that matter across every touchpoint.</p>
+            <a href="https://www.nngroup.com/articles/customer-experience/" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+        <div class="resource-card" onclick="window.open('https://designsystemsrepo.com/design-systems/', '_blank')">
+            <span class="resource-category">Experience Transformation</span>
+            <h3>Design Systems That Scale</h3>
+            <p class="resource-preview">As digital products grow, inconsistency creeps in. Design systems bring order to chaos—providing reusable components, clear guidelines, and shared language that enable teams to move faster while maintaining quality.</p>
+            <a href="https://designsystemsrepo.com/design-systems/" target="_blank" class="resource-link">Read Article →</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">VectorKraft<em>digital</em></div>
+        <p class="footer-copy">© 2025 VectorKraft Digital. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
