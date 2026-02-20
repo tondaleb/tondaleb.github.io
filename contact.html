@@ -54,14 +54,14 @@
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-end;
             line-height: 1;
         }
 
         .logo em {
             font-family: 'DM Sans', sans-serif;
-            font-style: italic;
-            font-weight: 300;
+            font-style: normal;
+            font-weight: 700;
             font-size: 0.75rem;
             color: var(--accent);
             letter-spacing: 0.28em;
@@ -200,7 +200,7 @@
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
+            align-items: flex-end;
             gap: 1.2rem;
         }
 
@@ -356,14 +356,14 @@
             color: var(--white);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-end;
             line-height: 1;
         }
 
         .footer-logo em {
             font-family: 'DM Sans', sans-serif;
-            font-style: italic;
-            font-weight: 300;
+            font-style: normal;
+            font-weight: 700;
             font-size: 0.7rem;
             color: var(--accent);
             letter-spacing: 0.28em;
@@ -421,7 +421,6 @@
                 <a href="digital-transformation.html">Digital Transformation</a>
                 <a href="responsible-ai.html">Responsible AI</a>
                 <a href="digital-product-delivery.html">Digital Product Delivery</a>
-                <a href="experience-transformation.html">Experience Transformation</a>
             </div>
         </li>
         <li><a href="industries.html">Industries</a></li>
@@ -457,21 +456,7 @@
                     <div>
                         <div class="contact-item-label">Email</div>
                         <div class="contact-item-value">
-                            <a href="mailto:info@vectorkraftdigital.com">info@vectorkraftdigital.com</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#00C9FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="contact-item-label">Phone</div>
-                        <div class="contact-item-value">
-                            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                            <a href="/cdn-cgi/l/email-protection#1c75727a735c6a797f68736e776e7d7a6878757b75687d70327f7371"><span class="__cf_email__" data-cfemail="cda4a3aba28dbba8aeb9a2bfa6bfacabb9a9a4aaa4b9aca1e3aea2a0">[email&#160;protected]</span></a>
                         </div>
                     </div>
                 </div>
@@ -509,21 +494,15 @@
                     <input type="text" id="company" placeholder="Your company name">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                    <label for="service">Service of Interest</label>
+                    <select id="service">
+                        <option value="">Select a service...</option>
+                        <option>Digital Transformation</option>
+                        <option>Responsible AI</option>
+                        <option>Digital Product Delivery</option>
+                        <option>Not sure yet</option>
+                    </select>
                 </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="service">Service of Interest</label>
-                <select id="service">
-                    <option value="">Select a service...</option>
-                    <option>Digital Transformation</option>
-                    <option>Responsible AI</option>
-                    <option>Digital Product Delivery</option>
-                    <option>Experience Transformation</option>
-                    <option>Not sure yet</option>
-                </select>
             </div>
             
             <div class="form-group">
@@ -556,16 +535,6 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function handleSubmit(e) {
-        e.preventDefault();
-        document.getElementById('form-success').style.display = 'block';
-        e.target.reset();
-        setTimeout(() => {
-            document.getElementById('form-success').style.display = 'none';
-        }, 5000);
-    }
-</script>
-
-</body>
-</html>
+        e.preventDefau
